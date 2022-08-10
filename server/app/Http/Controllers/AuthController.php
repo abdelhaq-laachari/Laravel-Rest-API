@@ -43,7 +43,7 @@ class AuthController extends Controller
         $user = User::where('email',$fields['email'])->first();
 
         // check password if correct
-        if(!$user || !Hash::check($fields['password'], $user->password)){
+        if(!$user || !Hash::check($fields['password'], $user->password)){ 
             return response([
                 'message' => 'Email or password is incorrect'
             ], 401);
